@@ -19,11 +19,11 @@ from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
 
-ഹായ് {}, എന്റെ പേര് {}! ഞാൻ [ഇദ്ദേഹം](tg://user?id={}) നോക്കി നടത്തുന്ന ഒരു അടിപൊളി അഡ്മിൻ ബോട്ടാണ്.
+വരണം... വരണം.. {}, ഞാൻ {}! ഈ  [മഹാമനസ്കൻ](tg://user?id={}) ആണ് എന്നെ വെളിച്ചം കാണിച്ചത്... അതുകൊണ്ട് ആ നന്ദി അദ്ദേഹത്തോട് എപ്പോഴും വേണം എന്ന് താഴ്മയായി അപേക്ഷിച്ചുകൊള്ളുന്നു.....
 
-എന്നെ നിർമ്മിച്ചിരിക്കുന്നത് python3 യിൽ python-telegram-bot ലൈബ്രറി ഉപയോഗിച്ചാണ്. ഞാൻ പൂർണ്ണമായിട്ടും ഓപ്പൺസോഴ്സ്ഡ് ആണ്. എന്റെ കോഡ് നിങ്ങൾക്ക് [ഇവിടെ](https://github.com/jithumon/tgbot) കാണുവാൻ സാധിക്കും.
+എന്നെ നിർമ്മിച്ചിരിക്കുന്നത് python3 യിൽ python-telegram-bot ലൈബ്രറി ഉപയോഗിച്ചാണ്. ഞാൻ പൂർണ്ണമായിട്ടും ഓപ്പൺസോഴ്സ്ഡ് ആണ്. എന്റെ കോഡ് നിങ്ങൾക്ക് [ഇവിടെ](https://github.com/K1DD0SC4LLM3NOOB/trollan-bot) കാണുവാൻ സാധിക്കും.
 
-എന്റെ അപ്ഡേറ്റുകളെക്കുറിച്ചും പ്രവർത്തനത്തെപറ്റിയും അറിയുവാൻ [ഈ ചാനൽ](t.me/kochu_updates) സബ്സ്ക്രൈബ് ചെയ്യാൻ മറക്കേണ്ട.
+എന്റെ അപ്ഡേറ്റുകളെക്കുറിച്ചും പ്രവർത്തനത്തെപറ്റിയും അറിയുവാൻ [ഈ ഗ്രൂപ്പിൽ](t.me/mariebotmalayalamsupport) വന്നാൽ മതിയാകും... 
 
 ലഭ്യമായ കമാന്റുകളെപ്പറ്റി അറിയുവാൻ /help അമർത്തുക.
 
@@ -31,26 +31,21 @@ PM_START_TEXT = """
 """
 
 HELP_STRINGS = """
-Hey there! My name is *{}*.
-I'm a modular group management bot with a few fun extras! Have a look at the following for an idea of some of \
-the things I can help you with.
-*Main* commands available:
- - /start: start the bot
- - /help: PM's you this message.
- - /help <module name>: PM's you info about that module.
- - /donate: information about how to donate!
+ഹലോ ! എന്റെ പേര്  *{}*.
+ഞാൻ ഒരു കട്ട ട്രോളൻ ഉണ്ടാക്കിയ ബോട്ട് ആണ്.... ഒരു കട്ട ട്രോളൻ ഉണ്ടാക്കിയ ബോട്ട് ആയതുകൊണ്ട് തന്നെ എന്നെ നല്ലപോലെ സഹിക്കേണ്ടി വരും.......
+*Main* ലഭ്യമായ Commandകൾ:
+ - /start: ബോട്ടിനെ സ്റ്റാർട്ട് ആക്കാൻ..
+ - /help: ഈ മെസ്സേജ് നിങ്ങളുടെ PMൽ കിട്ടാൻ....
+ - /help <module name>: ഒരു പ്രത്യേക Moduleനെ കുറിച്ചുള്ള സഹായം PMൽ ലഭിക്കാൻ.....
+ - /donate:ബക്കറ്റ് പിരിവിന് എന്തേലും തന്ന് സഹായിക്കാൻ....
  - /settings:
-   - in PM: will send you your settings for all supported modules.
-   - in a group: will redirect you to pm, with all that chat's settings.
+   - in PM: നിങ്ങൾ ഇപ്പോൾ ഉപയോഗിച്ചുകൊണ്ടിരിക്കുന്ന യന്ത്രത്തിന്റെ Settings അറിയാൻ.....
+   - in a group: ഗ്രൂപ്പിൽ അടിച്ചാലും മേൽപ്പറഞ്ഞ കടികൾ PMൽ ആണ് വരൂ.....
 {}
 And the following:
-""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
+""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "മേൽപ്പറഞ്ഞ സാധനങ്ങൾ എല്ലാം / അല്ലെങ്കിൽ ! വെച്ച് ഉപയോഗിക്കാവുന്നതാണ്..... \n")
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
-It took lots of work for [my creator](t.me/SonOfLars) to get me to where I am now, and every donation helps \
-motivate him to make me even better. All the donation money will go to a better VPS to host me, and/or beer \
-(see his bio!). He's just a poor student, so every little helps!
-There are two ways of paying him; [PayPal](paypal.me/PaulSonOfLars), or [Monzo](monzo.me/paulnionvestergaardlarsen)."""
+DONATE_STRING = """നന്ദി ഉണ്ട് കുട്ടി ഈ കാലത്ത് വെറുതെ ഒരാൾ 25000 രൂപ ഒക്കെ തരുവാണെന്ന് പറഞ്ഞാൽ.... എന്തായാലും കൊണ്ടുവന്നതല്ലേ [ഇവിടെ ഇട്ടോ](t.me/DontTagMeLooser) ."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -430,7 +425,7 @@ def main():
 
     if WEBHOOK:
         LOGGER.info("Using webhooks.")
-        updater.start_webhook(listen="127.0.0.1",
+        updater.start_webhook(listen="0.0.0.0",
                               port=PORT,
                               url_path=TOKEN)
 
