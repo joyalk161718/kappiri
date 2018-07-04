@@ -22,7 +22,7 @@ def afk(bot: Bot, update: Update):
         reason = ""
 
     sql.set_afk(update.effective_user.id, reason)
-    update.effective_message.reply_text("{} is now AFK!".format(update.effective_user.first_name))
+    update.effective_message.reply_text("{} ഇവിടെ ഇല്ലെന്ന് പറയാൻ പറഞ്ഞു... ".format(update.effective_user.first_name))
 
 
 @run_async
@@ -34,7 +34,7 @@ def no_longer_afk(bot: Bot, update: Update):
 
     res = sql.rm_afk(user.id)
     if res:
-        update.effective_message.reply_text("{} is no longer AFK!".format(update.effective_user.first_name))
+        update.effective_message.reply_text("{} വന്നിട്ടുണ്ട് ആർക്കേലും എന്തേലും പറയാനുണ്ടേൽ ഇപ്പൊ പറഞ്ഞോ.... ഇനി അറിഞ്ഞില്ല കേട്ടില്ല പറയരുത്.....".format(update.effective_user.first_name))
 
 
 @run_async
@@ -61,20 +61,20 @@ def reply_afk(bot: Bot, update: Update):
             if sql.is_afk(user_id):
                 user = sql.check_afk_status(user_id)
                 if not user.reason:
-                    res = "{} is AFK!".format(fst_name)
+                    res = "{} ഇപ്പോൾ സ്ഥലത്തില്ല കാരണം !".format(fst_name)
                 else:
-                    res = "{} is AFK! says its because of:\n{}".format(fst_name, user.reason)
+                    res = "{} ഇപ്പോൾ സ്ഥലത്തില്ല.... കാരണം പറഞ്ഞിരിക്കുന്നത്.. :\n{}".format(fst_name, user.reason)
                 message.reply_text(res)
 
 
 __help__ = """
- - /afk <reason>: mark yourself as AFK.
- - brb <reason>: same as the afk command - but not a command.
+ - /afk <reason>: നിങ്ങൾ സ്ഥലത്തില്ല എന്നറിയിക്കാൻ...
+ - brb <reason>: വല്യ മാറ്റം ഒന്നും ഇല്ല മേലെ പറഞ്ഞത് തന്നെ.....
 
-When marked as AFK, any mentions will be replied to with a message to say you're not available!
+AFK ഓൺ ആക്കി വെച്ചാൽ നിങ്ങളെ ആര് മെൻഷൻ ചെയ്താലും നിങ്ങ സ്ഥലത്തില്ലന്ന് പറയും......
 """
 
-__mod_name__ = "AFK"
+__mod_name__ = "കി.നീ.അ"
 
 AFK_HANDLER = DisableAbleCommandHandler("afk", afk)
 AFK_REGEX_HANDLER = DisableAbleRegexHandler("(?i)brb", afk, friendly="afk")
