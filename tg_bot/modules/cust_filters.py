@@ -1,3 +1,4 @@
+
 import re
 from typing import Optional
 
@@ -149,6 +150,11 @@ def reply_filter(bot: Bot, update: Update):
     if not to_match:
         return
 
+    # my custom thing
+    if message.reply_to_message:
+        message = message.reply_to_message
+    # my custom thing
+
     chat_filters = sql.get_chat_triggers(chat.id)
     for keyword in chat_filters:
         pattern = r"( |^|[^\w])" + re.escape(keyword) + r"( |$|[^\w])"
@@ -171,9 +177,13 @@ def reply_filter(bot: Bot, update: Update):
                 keyb = build_keyboard(buttons)
                 keyboard = InlineKeyboardMarkup(keyb)
 
+                should_preview_disabled = True
+                if "telegra.ph" in filt.reply:
+                    should_preview_disabled = False
+
                 try:
                     message.reply_text(filt.reply, parse_mode=ParseMode.MARKDOWN,
-                                       disable_web_page_preview=True,
+                                       disable_web_page_preview=should_preview_disabled,
                                        reply_markup=keyboard)
                 except BadRequest as excp:
                     if excp.message == "Unsupported url protocol":
@@ -211,7 +221,6 @@ def __chat_settings__(chat_id, user_id):
 
 __help__ = """
  - /filters: list all active filters in this chat.
-
 *Admin only:*
  - /filter <keyword> <reply message>: add a filter to this chat. The bot will now reply that message whenever 'keyword'\
 is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter \
@@ -225,7 +234,7 @@ __mod_name__ = "Filters"
 FILTER_HANDLER = CommandHandler("filter", filters)
 STOP_HANDLER = CommandHandler("stop", stop_filter)
 LIST_HANDLER = DisableAbleCommandHandler("filters", list_handlers, admin_ok=True)
-CUST_FILTER_HANDLER = MessageHandler(CustomFilters.has_text, reply_filter)
+CUST_FILTER_HANDLER = MessageHandler(CustomFilters.has_text, reply_filter, edited_updates=True)
 
 dispatcher.add_handler(FILTER_HANDLER)
 dispatcher.add_handler(STOP_HANDLER)
