@@ -28,7 +28,7 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("ആരേം കാണുന്നില്ലല്ലോ 🤷🏻‍♂.")
         return ""
 
     user_member = chat.get_member(user_id)
@@ -53,7 +53,7 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
                           can_pin_messages=bot_member.can_pin_messages,
                           can_promote_members=bot_member.can_promote_members)
 
-    message.reply_text("Successfully promoted!")
+    message.reply_text("സ്ഥാനക്കയറ്റം കൊടുത്തിട്ടുണ്ട്! 👍🏻")
     return "<b>{}:</b>" \
            "\n#PROMOTED" \
            "\n<b>Admin:</b> {}" \
