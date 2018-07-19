@@ -22,7 +22,7 @@ def afk(bot: Bot, update: Update):
         reason = ""
 
     sql.set_afk(update.effective_user.id, reason)
-    update.effective_message.reply_text("{} ഇവിടെ ഇല്ലെന്ന് പറയാൻ പറഞ്ഞു... ".format(update.effective_user.first_name))
+    update.effective_message.reply_text("{} ഇപ്പോൾ offline ആണ്!".format(update.effective_user.first_name))
 
 
 @run_async
@@ -34,7 +34,7 @@ def no_longer_afk(bot: Bot, update: Update):
 
     res = sql.rm_afk(user.id)
     if res:
-        update.effective_message.reply_text("{} വന്നിട്ടുണ്ട് ആർക്കേലും എന്തേലും പറയാനുണ്ടേൽ ഇപ്പൊ പറഞ്ഞോ.... ഇനി അറിഞ്ഞില്ല കേട്ടില്ല പറയരുത്.....".format(update.effective_user.first_name))
+        update.effective_message.reply_text("{} ഇപ്പോൾ offline ആണ്!".format(update.effective_user.first_name))
 
 
 @run_async
