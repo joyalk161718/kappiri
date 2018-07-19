@@ -40,7 +40,7 @@ def mute(bot: Bot, update: Update, args: List[str]) -> str:
 
         elif member.can_send_messages is None or member.can_send_messages:
             bot.restrict_chat_member(chat.id, user_id, can_send_messages=False)
-            message.reply_text("🤐 ലവന്റെ വായടച്ചിട്ടുണ്ട്! 😡")
+            message.reply_text("🤐 ലവന്റെ വായടച്ചിട്ടുണ്ട്! 👍🏻")
             return "<b>{}:</b>" \
                    "\n#MUTE" \
                    "\n<b>Admin:</b> {}" \
@@ -158,7 +158,7 @@ def temp_mute(bot: Bot, update: Update, args: List[str]) -> str:
     try:
         if member.can_send_messages is None or member.can_send_messages:
             bot.restrict_chat_member(chat.id, user_id, until_date=mutetime, can_send_messages=False)
-            message.reply_text("Muted for {}!".format(time_val))
+            message.reply_text("കുറച്ചുനേരം അവിടെ മിണ്ടാതിരിക്ക് 😡 Muted for {}!".format(time_val))
             return log
         else:
             message.reply_text("This user is already muted.")
