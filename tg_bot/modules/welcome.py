@@ -299,7 +299,7 @@ def set_welcome(bot: Bot, update: Update) -> str:
         return ""
 
     sql.set_custom_welcome(chat.id, content or text, data_type, buttons)
-    msg.reply_text("Successfully set custom welcome message!")
+    msg.reply_text("Welcome message സെറ്റ് ചെയ്‌തിട്ടുണ്ട്‌! 🤩")
 
     return "<b>{}:</b>" \
            "\n#SET_WELCOME" \
@@ -377,7 +377,7 @@ def clean_welcome(bot: Bot, update: Update, args: List[str]) -> str:
 
     if args[0].lower() in ("on", "yes"):
         sql.set_clean_welcome(str(chat.id), True)
-        update.effective_message.reply_text("I'll try to delete old welcome messages!")
+        update.effective_message.reply_text("OK, അപ്പൊ പഴയ welcome message ഒക്കെ ഡിലീറ്റ് ചെയ്യാൻ ശ്രമിക്കാം! 👍🏻")
         return "<b>{}:</b>" \
                "\n#CLEAN_WELCOME" \
                "\n<b>Admin:</b> {}" \
