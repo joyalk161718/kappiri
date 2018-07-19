@@ -183,7 +183,7 @@ def kick(bot: Bot, update: Update, args: List[str]) -> str:
             raise
 
     if is_user_ban_protected(chat, user_id):
-        message.reply_text("I really wish I could kick admins...")
+        message.reply_text("പുള്ളി അഡ്മിനാണ്, എനിക്ക് പുറത്താക്കാൻ പറ്റില്ല 😕")
         return ""
 
     if user_id == bot.id:
@@ -312,7 +312,7 @@ def rban(bot: Bot, update: Update, args: List[str]):
             raise
 
     if is_user_ban_protected(chat, user_id, member):
-        message.reply_text("I really wish I could ban admins...")
+        message.reply_text("അഡ്മിന് കൊടുക്കാനുള്ള ബണ്ണ് എന്റേൽ ഇല്ലല്ലോ 😕")
         return ""
 
     if user_id == bot.id:
