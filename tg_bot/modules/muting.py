@@ -36,11 +36,11 @@ def mute(bot: Bot, update: Update, args: List[str]) -> str:
 
     if member:
         if is_user_admin(chat, user_id, member=member):
-            message.reply_text("Afraid I can't stop an admin from talking!")
+            message.reply_text("പുള്ളി അഡ്മിനാണ്, മ്യൂട്ടാനൊന്നും പറ്റില്ല 😕")
 
         elif member.can_send_messages is None or member.can_send_messages:
             bot.restrict_chat_member(chat.id, user_id, can_send_messages=False)
-            message.reply_text("Muted!")
+            message.reply_text("🤐 ലവന്റെ വായടച്ചിട്ടുണ്ട്! 😡")
             return "<b>{}:</b>" \
                    "\n#MUTE" \
                    "\n<b>Admin:</b> {}" \
@@ -122,7 +122,7 @@ def temp_mute(bot: Bot, update: Update, args: List[str]) -> str:
             raise
 
     if is_user_admin(chat, user_id, member):
-        message.reply_text("I really wish I could mute admins...")
+        message.reply_text("പുള്ളി അഡ്മിനാണ്, മ്യൂട്ടാനൊന്നും പറ്റില്ല 😕")
         return ""
 
     if user_id == bot.id:
@@ -166,7 +166,7 @@ def temp_mute(bot: Bot, update: Update, args: List[str]) -> str:
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
-            message.reply_text("Muted for {}!".format(time_val), quote=False)
+            message.reply_text("കുറച്ചുനേരം അവിടെ മിണ്ടാതിരിക്ക് 😡 Muted for {}!".format(time_val), quote=False)
             return log
         else:
             LOGGER.warning(update)
