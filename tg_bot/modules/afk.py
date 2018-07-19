@@ -34,7 +34,7 @@ def no_longer_afk(bot: Bot, update: Update):
 
     res = sql.rm_afk(user.id)
     if res:
-        update.effective_message.reply_text("{} ഇപ്പോൾ offline ആണ്!".format(update.effective_user.first_name))
+        update.effective_message.reply_text("{} Online വന്നിട്ടുണ്ട്!".format(update.effective_user.first_name))
 
 
 @run_async
