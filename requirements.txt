@@ -5,3 +5,16 @@ sqlalchemy
 python-telegram-bot>=10.1.0
 psycopg2-binary
 feedparser
+psycopg2-binary
+pyowm
+bs4
+lxml
+demjson
+PyLyrics
+wget
+gTTS
+telegram
+zalgo_text
+pynewtonmath
+bs4
+lxml
